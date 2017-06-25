@@ -29,11 +29,14 @@ if (startsWith($command, "edit"))
 		$content = $_POST["content"];
 		$filename = $_POST["filename"];
 
-		$filename = $_CD . "/" . $filename;
+		$filename = $_CD . "/" . decodeCMD($filename);
 
 		if (file_exists($filename))
 		{
-			
+			file_put_contents($filename, $content);
+			echo "\"$filename\" successfully saved in the server";
+		}else{
+			header("HTTP/1.0 404");
 		}
 	}
 }

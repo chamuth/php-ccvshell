@@ -47,7 +47,7 @@ if (isset($_GET["p"]))
 			include "zip.php"; // for zipping and unzipping files
 			include "edit.php"; // for editing files through the cmd
 		}else{
-			
+			header("HTTP/1.0 403 Forbidden");
 		}
 	}else{
 		header("HTTP/1.0 403 Forbidden");
